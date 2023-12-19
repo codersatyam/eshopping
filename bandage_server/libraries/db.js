@@ -1,14 +1,15 @@
 const knexObject = require("knex");
 const pg = require("pg");
+const dotenv = require("dotenv").config();
 
 pg.types.setTypeParser(20, Number);
 
 const knexConfig = {
     client: "postgresql",
     connection: {
-        database: "bandage",
-        user: "tnluser",
-        password: null,
+        database: process.env.DB_NAME,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
     },
     pool: {
         min: 2,
