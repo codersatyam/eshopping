@@ -1,6 +1,7 @@
 const { generateJWTToken } = require("../helpers/jwt");
 const { getUserByEmail, createNewUser } = require("../models/users");
 const crypto = require("crypto");
+const sendEmail = require("../helpers/email/messaging");
 
 const registration = async (req, res) => {
     try {
@@ -16,7 +17,7 @@ const registration = async (req, res) => {
 
         const newUser = await createNewUser({ name, email, phone, password });
         const token = await generateJWTToken({ payload: { id: newUser.user_id } });
-
+        const mail = await sendEmail({email})
         return res.status(200).json({
             success: true,
             message: "User account created.",
