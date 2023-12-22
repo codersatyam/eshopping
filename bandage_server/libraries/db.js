@@ -7,8 +7,7 @@ pg.types.setTypeParser(20, Number);
 const knexConfig = {
     client: "pg",
     connection: {
-        connectionString: 'postgres://satyam:ub1NqOvHQaR6nNe01Reo8aAeYu1H5FIs@dpg-cm0ip7mn7f5s73c7afcg-a.oregon-postgres.render.com/bandage'+ '?sslmode=require',
-        host:"10.204.234.165",
+        connectionString: "postgres://satyam:ub1NqOvHQaR6nNe01Reo8aAeYu1H5FIs@dpg-cm0ip7mn7f5s73c7afcg-a/bandage",
         port: 5432,
         database: process.env.DB_NAME,
         user: process.env.DB_USER,
